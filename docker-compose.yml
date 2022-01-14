@@ -1,21 +1,42 @@
-version: '3.7'
+version: "3.1"
+
 services:
-    web:
-        build: .
-        command: python /code/manage.py runserver 0.0.0.0:8000                     
-        volumes:
-            - .:/code
-        ports:
-            - 8000:8000
-        depends_on:
-            - db
-    db: 
-        image: postgres:11
-        volumes:
-            - postgres_data:/var/lib/postgresql/data/  
-        environment:
-            POSTGRES_DB: "db"
-            POSTGRES_HOST_AUTH_METHOD: "trust"
+  web:
+      build: .
+      command: python /code/manage.py runserver 0.0.0.0:8000                     
+      volumes:
+        - .:/code
+      ports:
+        - 8000:8000  
+      depends_on:
+        - pgadmin
+
+  db:
+    restart: always
+    image: postgres:11
+    container_name: db_postgres 
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=mebook_hub
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  pgadmin:
+      image: dpage/pgadmin4
+      container_name: pgadmin4
+      depends_on:
+        - db
+      ports:
+        - 5051:80
+      environment:
+        PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+        PGADMIN_DEFAULT_PASSWORD: root
+      restart: always
+
+  
 
 volumes:
     postgres_data:
