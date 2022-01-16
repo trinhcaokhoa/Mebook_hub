@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+{% block title %} MeBook Hub {% endblock title %}
+
+{% block content %}
+<h1>MeBook Hub </h1>
+<div class="user_greeting">
+    {% if user.is_authenticated %}
+    <p> Welcome back </p> {{user.email}}
+    <a href="{% url 'logout' %}"><button type="get" class="log_btn">Log Out </button></a>
+    {% else%}
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}"><button type="get" class="log_btn" >Log In </button></a>
+    <a href="{% url 'signup' %}"><button type="get" class="log_btn">Sign Up </button></a>
+    {% endif %}
+</div>
+
+
+{% endblock content %}
