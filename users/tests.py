@@ -1,16 +1,17 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-from django.urls import reverse, resolve  
-from .forms import CustomUserCreationForm  
+from django.urls import reverse, resolve
+from .forms import CustomUserCreationForm
 from .views import SignUpPageView
+
 
 class CustomUserTest(TestCase):
     def create_user(self):
         User = get_user_model()
-        user = User.objects.create_user (
-            username = 'trinh',
-            email = 'caokhoa@yahoo.com',
-            password = 'test123'
+        user = User.objects.create_user(
+            username='trinh',
+            email='caokhoa@yahoo.com',
+            password='test123'
         )
 
         self.assertEqual(user.username, 'trinh')
@@ -18,7 +19,7 @@ class CustomUserTest(TestCase):
         self.assertTrue(user.is_active)
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
-    
+
     def create_superuser(self):
         User = get_user_model()
         admin_user = User.objects.create_superuser(
@@ -43,10 +44,7 @@ class SignUpPageTests(TestCase):
         self.assertEqual(self.response.status_code, 200)
         self.assertTemplateUsed(self.response, 'signup.html')
         self.assertContains(self.response, 'Sign Up')
-        
-    def test_signup_form(self):  
+
+    def test_signup_form(self):
         form = self.response.context.get('form')
         self.assertIsInstance(form, CustomUserCreationForm)
-
-
-
