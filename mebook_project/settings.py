@@ -37,7 +37,18 @@ INSTALLED_APPS = [
     
     # Local App
     'users.apps.UsersConfig',
+
+    'homepages.apps.HomepagesConfig',  
+    'frontend.apps.FrontendConfig',
+    
+
+    # REST API
+    'rest_framework',
+    'api.apps.ApiConfig',
+    
+
     'homepages.apps.HomepagesConfig'
+
 ]
 
 MIDDLEWARE = [
@@ -55,7 +66,11 @@ ROOT_URLCONF = 'mebook_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/templates')],
+
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,9 +138,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# Static setting
 STATIC_URL = '/static/'
 
+
+
+# Auth setting
 AUTH_USER_MODEL = 'users.CustomUser'
+
+
+# Direct setting
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
