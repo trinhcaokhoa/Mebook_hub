@@ -1,3 +1,74 @@
+
+body{
+    background-image: linear-gradient(
+		45deg,
+		rgba(246, 250, 23) 0%,
+		rgb(231, 121, 31) 10%,
+		rgb(28, 116, 151) 100%);
+	
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+
+
+}
+
+.bg-light {
+    background-color: inherit!important;
+}
+
+.logo{
+	
+	position:sticky;
+	width: 100px;
+	height: 100px;
+	margin-left: 50px;
+	margin-right: 80px;
+	
+}
+.collapse{	
+	margin-left: 150px;
+	margin-right: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+	
+}
+
+.collapse ul{
+	margin-right: 55px;
+	padding-left: 15px;
+	padding-right: 25px;
+	
+	
+}
+.collapse ul li{
+	
+	margin-left: 25px;
+	
+	border: 5px;
+}
+
+.dropdown-item{
+	color: black;
+}
+
+.navbar-toggler{
+	background-color: blue;
+}
+
+h1{
+	text-align: center;
+	margin: 80px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.homepage_pic{
+	margin: 50px;
+	align-items: center;
+}
+
+
+
+=======
 h1{
     color: rgb(252, 46, 218);
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -5,3 +76,4 @@ h1{
     margin: 10px;
     position: absolute;
 }
+
