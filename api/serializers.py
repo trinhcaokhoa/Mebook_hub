@@ -10,7 +10,11 @@ class BookSerializer(serializers.Serializer):
         fields = ('id', 'name', 'author', 'area', 'link_to_book')
 
 
+<<<<<<< HEAD
 class UserSerializer(serializers.ModelSerializer):   
+=======
+class UserSerializer(serializers.ModelSerializer):
+>>>>>>> ce2eab8c22d7b4d9a50e15c0957c2041288428c8
 
     class Meta:
         model = get_user_model()
