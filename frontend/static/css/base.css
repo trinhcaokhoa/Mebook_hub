@@ -9,30 +9,6 @@ body{
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 
- a{
-	 color: #212529;
- }
- p{
-	 font-family:cursive;
- }
- h1{
-	text-align: center;
-	margin-left: 30px;
-	margin-top: 50px;
-	margin-bottom: 30px;
-	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-h3{	
-	text-align: center;
-	font-size: 25px;
-	font-family:cursive;
-	margin-bottom: 50px;
-}
-
-/** CSS for _base.html **/
-
-
 
 }
 
@@ -40,22 +16,14 @@ h3{
     background-color: inherit!important;
 }
 
-
-.logo{	
-
 .logo{
 	
-
 	position:sticky;
 	width: 100px;
 	height: 100px;
 	margin-left: 50px;
-
-	margin-right: 80px;	
-
 	margin-right: 80px;
 	
-
 }
 .collapse{	
 	margin-left: 150px;
@@ -79,63 +47,6 @@ h3{
 	border: 5px;
 }
 
-
-.navbar-light .navbar-nav .nav-link {
-    color: #212529;
-}
-
-.navbar-toggler{
-	background-color: #212529;
-}
-.btn-outline-success {
-    color: #212529;
-    border-color: #212529;
-}
-
-
-/** CSS for _homepages.html **/
-.body_story{
-	border: #212529;
-	margin: 50px;
-}
-.blockquote-footer {
-    color: #210ccf;
-}
-
-#bookshelf{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 450px;
-  height: 450px;
-}
-
-.card{
-	background-color: inherit;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #212529;
-    border-color: #212529;
-}
-
-.profile_card{
-	margin:50px;
-	margin-left:10px;
-	margin-bottom: 30px;
-}
-
-.profile_social a{
-	margin: 10px;
-}
-
-
-
-
-
 .dropdown-item{
 	color: black;
 }
@@ -157,7 +68,7 @@ h1{
 
 
 
-
+=======
 h1{
     color: rgb(252, 46, 218);
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -165,5 +76,4 @@ h1{
     margin: 10px;
     position: absolute;
 }
-
 
