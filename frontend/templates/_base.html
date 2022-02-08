@@ -7,7 +7,7 @@
         <title>
             {% block title %} MeBook Hub {% endblock title%}
         </title>
-        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
             integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,7 +20,7 @@
       <div class="head_container">
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <a class="navbar-brand" href="{% url 'home' %}"><img class="logo" src="\static\images\logo.png"></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><img class="logo" src="\static\images\booklogo.png"></a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
               aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -57,6 +57,8 @@
           </nav>
           
         </div>
+        <h1> MEBOOK.HUB </h1>
+        <h3>" WHERE YOU DISPLAY YOUR EBOOKS "</h3>
              
                 
 
@@ -70,7 +72,6 @@
             {% block content%}
             
             {% endblock content%}
-
     </body>
     
 </html>
