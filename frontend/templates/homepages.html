@@ -4,6 +4,86 @@
 
 {% block content %}
 
+<div id="accordianId" role="tablist" aria-multiselectable="true">
+    <div class="card">
+        <div class="card-header" role="tab" id="section1HeaderId">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+          WHAT IS MEBOOK ?
+        </a>
+            </h5>
+        </div>
+        <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+            <div class="card-body">
+                <p>It is a fact that knowledge and books are inherently linked. In modern life, for students and researchers, reading
+                    ebooks is considered as a means to study and work, which has replaced reading thick books. 10 years ago, bookshelves
+                    with good books could be a pride. However, with the advent of ebooks, people could only store them
+                    as pdfs in digital drives. Stemming from that inspiration, MeBook.hub wishes to become a place to store and display
+                    ebooks in a colorful way. Besides, with MeBook.hub, users can also comment, rate, search and download suitable ebooks
+                    without having to pay. Above all, there is a belief that knowledge is free.
+                    <br> <br> Best regards.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" role="tab" id="section2HeaderId">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordianId" href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+          WHY IS MEBOOK ?
+        </a>
+            </h5>
+        </div>
+        <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+            <div class="card-body">
+                <img id="bookshelf" src="\static\images\shelf.jpg">
+                <p>Born from a passion for reading as well as fond memories of bookshelves from childhood, MeBook.Hub hopes that the value
+                and beauty of ebooks will be honored in the right way. Along with that, the free sharing of useful ebooks is also a
+                noble goal that MeBook.hub aims to. Hopefully, with the reviews and comments on the books available on MeBook.hub, users
+                will have the best experience in the process of expanding their knowledge.</p>
+                <blockquote class="blockquote"></blockquote>
+                <p class="mb-0">"Nature and books belong to the eyes that see them."</p>
+                <footer class="blockquote-footer"> <cite title="Source Title"> Ralph Waldo Emerson</cite></footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" role="tab" id="section3HeaderId">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordianId" href="#section3ContentId" aria-expanded="true"
+                    aria-controls="section3ContentId">
+                    WHO CREATE MEBOOK ?
+                </a>
+            </h5>
+        </div>
+        <div id="section3ContentId" class="collapse in" role="tabpane2" aria-labelledby="section3HeaderId">
+            <div class="profile_card">
+                <h2>Khoa Trinh</h2>
+                <p>Full-Time Student BSIT</p>
+                <p>Fairleigh Dickinson University <a href="https://www.fdu.edu/" ><i class="fas fa-university fa-2x"></i></a></p>
+                <div class="profile_social">
+                    <a target="_black" href="https://www.facebook.com/trinh.caokhoa/">
+                        <i class="fab fa-facebook fa-3x"></i>
+                    </a>
+                    <a target="_black" href="https://www.linkedin.com/in/khoa-trinh-cao/">
+                        <i class="fab fa-linkedin fa-3x"></i>
+                    </a>
+                    <a target="_black" href="https://github.com/trinhcaokhoa">
+                        <i class="fab fa-github fa-3x"></i>
+                    </a>
+            
+                </div>
+                
+            </div>
+            <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block">Contact Me</button>
+        </div>
+<<<<<<< HEAD
+=======
+    </div>
+</div>
+=======
+
 <h1> MEBOOK.HUB 
     <br>
     <br>WHERE YOU DISPLAY YOUR EBOOK
@@ -32,6 +112,7 @@
     <a href="{% url 'signup' %}"><button type="get" class="log_btn">Sign Up </button></a>
     {% endif %}
 </div>
+>>>>>>> ce2eab8c22d7b4d9a50e15c0957c2041288428c8
 
 
 {% endblock content %}

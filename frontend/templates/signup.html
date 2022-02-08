@@ -1,14 +1,31 @@
+
+<!-- templates/signup.html -->
 {% extends '_base.html' %}
+{% load crispy_forms_tags %}
+<<<<<<< HEAD
+=======
+=======
+{% extends '_base.html' %}
+>>>>>>> ce2eab8c22d7b4d9a50e15c0957c2041288428c8
 
 {% load static %}
 =======
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce2eab8c22d7b4d9a50e15c0957c2041288428c8
 {% block title %}Sign Up{% endblock title %}
 {% block content %}
 <h2>Sign Up</h2>
 <form method="post">
     {% csrf_token %}
+
+    {{ form|crispy }}
+    <button class="btn btn-success" type="submit">Sign Up</button>
+=======
     {{ form.as_p }}
     <button type="submit">Sign Up</button>
+
 </form>
 {% endblock content %}
