@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3!90pfr%rr=we&ghgdhc$_c7@bxdqsq5sos7zrvu67et745019'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -34,9 +34,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # Local App
     'users.apps.UsersConfig',
+
+    'frontend.apps.FrontendConfig',
+    'homepages.apps.HomepagesConfig',
+
+
+    # Third-parties
+    'rest_framework',
+    'api.apps.ApiConfig',
+    'crispy_forms',
+    
+
+
 
     'homepages.apps.HomepagesConfig',  
     'frontend.apps.FrontendConfig',
@@ -48,6 +60,7 @@ INSTALLED_APPS = [
     
 
     'homepages.apps.HomepagesConfig'
+
 
 ]
 
@@ -143,6 +156,7 @@ STATIC_URL = '/static/'
 
 
 
+
 # Auth setting
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -151,3 +165,9 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# django-crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Debug setting for developing stage
+
