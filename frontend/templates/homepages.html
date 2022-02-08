@@ -78,41 +78,6 @@
             </div>
             <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block">Contact Me</button>
         </div>
-<<<<<<< HEAD
-=======
-    </div>
-</div>
-=======
-
-<h1> MEBOOK.HUB 
-    <br>
-    <br>WHERE YOU DISPLAY YOUR EBOOK
-</h1>
-<div>
-    <img src="\static\images\shelf.jpg" class="homepage_pic">
-    <div>
-
-    </div>
-
-</div>
-
-
-
-
-
-=======
-<h1>MeBook Hub </h1>
-<div class="user_greeting">
-    {% if user.is_authenticated %}
-    <p> Welcome back </p> {{user.email}}
-    <a href="{% url 'logout' %}"><button type="get" class="log_btn">Log Out </button></a>
-    {% else%}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}"><button type="get" class="log_btn" >Log In </button></a>
-    <a href="{% url 'signup' %}"><button type="get" class="log_btn">Sign Up </button></a>
-    {% endif %}
-</div>
->>>>>>> ce2eab8c22d7b4d9a50e15c0957c2041288428c8
 
 
 {% endblock content %}

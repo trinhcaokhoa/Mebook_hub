@@ -37,7 +37,6 @@ INSTALLED_APPS = [
 
     # Local App
     'users.apps.UsersConfig',
-
     'frontend.apps.FrontendConfig',
     'homepages.apps.HomepagesConfig',
 
@@ -45,21 +44,8 @@ INSTALLED_APPS = [
     # Third-parties
     'rest_framework',
     'api.apps.ApiConfig',
-    'crispy_forms',
+    'crispy_forms',      
     
-
-
-
-    'homepages.apps.HomepagesConfig',  
-    'frontend.apps.FrontendConfig',
-    
-
-    # REST API
-    'rest_framework',
-    'api.apps.ApiConfig',
-    
-
-    'homepages.apps.HomepagesConfig'
 
 
 ]
