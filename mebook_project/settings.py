@@ -37,7 +37,6 @@ INSTALLED_APPS = [
 
     # Local App
     'users.apps.UsersConfig',
-
     'frontend.apps.FrontendConfig',
     'homepages.apps.HomepagesConfig',
 
@@ -46,20 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api.apps.ApiConfig',
     'crispy_forms',
-    
 
-
-
-    'homepages.apps.HomepagesConfig',  
-    'frontend.apps.FrontendConfig',
-    
-
-    # REST API
-    'rest_framework',
-    'api.apps.ApiConfig',
-    
-
-    'homepages.apps.HomepagesConfig'
 
 
 ]
@@ -155,8 +141,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-
-
 # Auth setting
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -170,4 +154,3 @@ LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Debug setting for developing stage
-
