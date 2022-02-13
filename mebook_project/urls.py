@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from xml.dom.minidom import Document
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.storage import staticfiles_storage
@@ -23,12 +25,11 @@ urlpatterns = [
 
     path('api/', include('api.urls')),
 
-    path('', include('homepages.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('users.urls')),
+    path('', include('homepages.urls')),   
+    path('accounts/', include('allauth.urls')),
     path('favicon.ico', RedirectView.as_view(
         url=staticfiles_storage.url('images/favicon.ico')))
 
-]
+] 
 
 
