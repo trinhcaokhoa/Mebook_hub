@@ -34,21 +34,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Local App
     'users.apps.UsersConfig',
     'frontend.apps.FrontendConfig',
     'homepages.apps.HomepagesConfig',
+    'books.apps.BooksConfig',
+    'api.apps.ApiConfig',
 
 
     # Third-parties
     'rest_framework',
-    'api.apps.ApiConfig',
-    'crispy_forms',
-
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'crispy_forms',   
+    
 
 
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -139,6 +145,8 @@ USE_TZ = True
 
 # Static setting
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# Media setting
 
 
 # Auth setting
@@ -146,11 +154,20 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 
 # Direct setting
-
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
 
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+# all auth config
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',  
+)
+# Email backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Debug setting for developing stage
+
