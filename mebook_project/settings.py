@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'frontend.apps.FrontendConfig',
     'homepages.apps.HomepagesConfig',
-    'books.apps.BooksConfig',
     'api.apps.ApiConfig',
 
 
@@ -147,7 +146,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Media setting
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Auth setting
 AUTH_USER_MODEL = 'users.CustomUser'
