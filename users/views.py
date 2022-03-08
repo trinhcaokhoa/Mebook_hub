@@ -23,9 +23,8 @@ class BookListView(ListView):
     template_name = 'mybooks/books_list.html'  
 
     def get_queryset(self):
-        # original qs
+        # using super() as multi-inheritance
         qs = super().get_queryset()
-        # filter by a variable captured from url, for example
         return qs.filter(owner=self.request.user)
     
         
