@@ -62,6 +62,7 @@
             "index": "pypi",
             "version": "==1.8.0"
         },
+
         "djangorestframework": {
             "hashes": [
                 "sha256:0c33407ce23acc68eca2a6e46424b008c9c02eceb8cf18581921d0092bc1f2ee",
@@ -70,6 +71,7 @@
             "index": "pypi",
             "version": "==3.13.1"
         },
+
         "idna": {
             "hashes": [
                 "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff",
