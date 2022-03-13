@@ -28,6 +28,7 @@ urlpatterns = [
     # local app
     path('api/', include('api.urls')),
     path('users/', include('users.urls')),
+    path('library/', include('library.urls')),
     path('', include('homepages.urls')),   
     # User account
     path('accounts/', include('allauth.urls')),

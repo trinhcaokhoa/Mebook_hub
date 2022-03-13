@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'frontend.apps.FrontendConfig',
     'homepages.apps.HomepagesConfig',
     'api.apps.ApiConfig',
+    'library.apps.LibraryConfig',
 
 
     # Third-parties
