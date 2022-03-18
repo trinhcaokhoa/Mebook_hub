@@ -4,5 +4,8 @@
 <div class="book-detail">
     <h2><a href="">{{ book_detail.title }}</a></h2>
     <p>Author: {{ book_detail.author }}</p>
+    <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+        Download PDF
+    </a>
 </div>
 {% endblock content %}

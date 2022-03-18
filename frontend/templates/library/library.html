@@ -4,6 +4,9 @@
 {% for book in library %}
 <div>
     <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
-</div>
+    
+</div>   
+
 {% endfor %}
+<a href="{% url 'upload_file' %}"><button class="btn btn-success" type="submit">Addbook</button></a>
 {% endblock content %}

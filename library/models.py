@@ -1,16 +1,15 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 from django.urls import reverse
 from users.models import CustomUser
-
-# Create your models here.
 
 
 class LibraryBook(models.Model):
     owner = models.ForeignKey(  # Owner is set as the current user (By defined function in admin.py)
         CustomUser,
-        on_delete=models.SET_NULL,
-        editable=False,
-        null=True
+        on_delete=models.CASCADE,
+        editable=True, # Set editable = True so that the form.py can work with owner
+        null=False
     )
 
     title = models.CharField(max_length=200, default='title')
@@ -23,4 +22,5 @@ class LibraryBook(models.Model):
 
     def get_absolute_url(self):
         return reverse('book_detail', args=[str(self.id)])
+
 
