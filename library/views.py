@@ -1,12 +1,13 @@
-from django.http import HttpResponseRedirect
+import os
+from sysconfig import get_path
+from django.conf import settings
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 from django.db.models import Q 
 from django.views.generic import ListView, DetailView
+from django.views.generic.base import ContextMixin
 from .models import LibraryBook
 from .forms import BookForm
-from django.contrib.auth import get_user_model
-
-
 
 
 class LibraryView(ListView): # View all the book
@@ -16,7 +17,6 @@ class LibraryView(ListView): # View all the book
 
 
 class BookListView(ListView): # View the book of the current user
-
     model = LibraryBook
     context_object_name = 'mybooks'
     template_name = 'library/mybooks.html'
@@ -31,8 +31,25 @@ class BookListView(ListView): # View the book of the current user
 class BookDetailView(DetailView): # Get the book detail, download
     model = LibraryBook
     context_object_name = 'book_detail'
-    template_name = 'library/book_detail.html'
-
+    template_name = 'library/book_detail.html' 
+    
+    def get_object(self, queryset=None): # set the instance as the current BookDetailView object by looking at primary key
+        BookDetailView.obj = LibraryBook.objects.get(pk=self.kwargs.get("pk"))
+        return super().get_object() # Return nothing
+    
+    def download_file(request):
+        filename = BookDetailView.obj.file
+        file_path = os.path.join(
+            settings.MEDIA_ROOT, str(filename))
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as fh:
+                response = HttpResponse(
+                fh.read(), content_type="application/vnd.ms-excel")
+                response['Content-Disposition'] = 'inline; filename=' + \
+                    os.path.basename(file_path)
+            return response
+        raise Http404
+        
     
 
 class SearchView(ListView): # Search the book with the q = keyword
@@ -47,19 +64,21 @@ class SearchView(ListView): # Search the book with the q = keyword
         )
 
 
-def upload_file(request): # method to upload a book to library
+def upload_file(request):  # method to upload a book to library
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/library/')
-    else:        
+            return HttpResponseRedirect('/library/')        
+    else:
         form = BookForm({'owner': request.user})
     return render(request, 'library/upload.html', {'form': form})
 
 
-def dowload_file(request):
-    return None
+
+
+
+
 
 
 

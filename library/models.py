@@ -1,3 +1,6 @@
+import os
+from django.conf import settings
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
@@ -18,7 +21,7 @@ class LibraryBook(models.Model):
     file = models.FileField(upload_to='doc/', null=True)
 
     def __str__(self):
-        return self.title
+        return self.file.name
 
     def get_absolute_url(self):
         return reverse('book_detail', args=[str(self.id)])
