@@ -1,9 +1,18 @@
 {% extends '_base.html' %}
 {% block title %}Books{% endblock title %}
 {% block content %}
-{% for book in mybooks %}
-<div>
-    <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
+<h2>Great to see you again, {{ user.username }}</h2>
+<div class="container">
+    <div class="row text-center text-lg-start">
+        {% for book in mybooks %}
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="{{book.file.url}}" class="d-block mb-4 h-100">
+                <img width="200px" height="200px" class="img-fluid img-thumbnail" src="{{book.cover.url}}" alt="">
+
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
 </div>
-{% endfor %}
 {% endblock content %}

@@ -1,11 +1,9 @@
 import os
-from sysconfig import get_path
 from django.conf import settings
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 from django.db.models import Q 
 from django.views.generic import ListView, DetailView
-from django.views.generic.base import ContextMixin
 from .models import LibraryBook
 from .forms import BookForm
 
@@ -28,11 +26,12 @@ class BookListView(ListView): # View the book of the current user
         return qs.filter(owner=self.request.user)
 
 
+
 class BookDetailView(DetailView): # Get the book detail, download
     model = LibraryBook
     context_object_name = 'book_detail'
     template_name = 'library/book_detail.html' 
-    
+
     def get_object(self, queryset=None): # set the instance as the current BookDetailView object by looking at primary key
         BookDetailView.obj = LibraryBook.objects.get(pk=self.kwargs.get("pk"))
         return super().get_object() # Return nothing
