@@ -4,7 +4,6 @@ from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 from django.db.models import Q 
 from django.views.generic import ListView, DetailView
-from django.contrib.auth.decorators import login_required
 from .models import LibraryBook
 from .forms import BookForm
 
