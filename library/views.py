@@ -69,7 +69,9 @@ def upload_file(request):  # method to upload a book to library
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/library/')        
+            return HttpResponseRedirect('/library/')    
+        else:
+            print('INvalid form')    
     else:
         form = BookForm({'owner': request.user})
     return render(request, 'library/upload.html', {'form': form})

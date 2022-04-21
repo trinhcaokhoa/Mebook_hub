@@ -11,9 +11,7 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-6">
                     <h4 class="box-title mt-5">Book description</h4>
-                    <p>Lorem Ipsum available,but the majority have suffered alteration in some form,by injected
-                        humour,or randomised words which don't look even slightly believable.but the majority have
-                        suffered alteration in some form,by injected humour</p>
+                    <p>{{ book_detail.description }}</p>
                     
                     <a href="{% url 'download_file' %}"><button type="button" class="btn-primary">Download PDF</button> </a>
                     <a href="{{ book_detail.file.url }}"><button type="button" class="btn-primary">View PDF</button> </a>
