@@ -25,9 +25,6 @@ body {
 	text-align: left ;
 	background-color: #6b81897d;
 }
-p {
-	font-family: cursive;
-}
 h1{
 	text-align: center;
 	font-family: Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;
@@ -483,7 +480,5 @@ img.img-fluid.img-thumbnail:hover {
 	width: 350px;
 	height: 500px;
 }
-.col-lg-5 col-md-5 col-sm-6{
-	margin: 20px;
-}
+
 

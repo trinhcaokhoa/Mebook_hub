@@ -7,7 +7,7 @@ from .models import LibraryBook
 
 class LibraryAdmin(admin.ModelAdmin):
     readonly_fields = ['id','owner']
-    list_display = ("id", "owner", "title", "author", "cover", "file")
+    list_display = ("id", "owner", "title", "author", "cover", "file","description")
    
     # return the current user as owner in admin page
     def save_model(self, request, obj, form, change):
