@@ -493,5 +493,9 @@ img.img-responsive:hover{
 	transition: 0.3s;
 }
 
+.rating{
+	margin-bottom: 15px;
+}
+
 
 
