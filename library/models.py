@@ -8,6 +8,7 @@ from users.models import CustomUser
 from django.contrib.contenttypes.fields import GenericRelation
 
 
+
 class LibraryBook(models.Model):
     owner = models.ForeignKey(  # Owner is set as the current user (By defined function in admin.py)
         CustomUser,

@@ -43,9 +43,6 @@
                 <a href="{% url 'mybooks'%}"><span class="fa fa-book-open-reader mr-3"></span> My Book</a>
               </li>
               <li>
-                <a href="https://github.com/trinhcaokhoa/Mebook_hub"><span class="fab fa-github mr-3"></span>Information</a>
-              </li>
-              <li class="">
                 {% if user.is_authenticated %}
                 <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-outline-danger">Log Out</button> </a>
                 {% else%}
