@@ -2,14 +2,19 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <h3>ADD YOUR BOOK HERE</h3>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" class="custom-file" id="customFile">
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn btn-success" type="submit">Upload</button>
-    </form>
+    </form>   
     
-    <p><a href="{% url 'home' %}">Return to home</a></p>
-
+<script type="application/javascript"> 
+    $(".custom-file-input").on("change", function () {
+            var files = Array.from(this.files)
+            var fileName = files.map(f => { return f.name }).join(", ")
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+        </script>
 {% endblock %}
 
 

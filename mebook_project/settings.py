@@ -49,9 +49,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'crispy_forms',   
-    
-
+    'crispy_forms',  
+    'star_ratings',
 
 ]
 SITE_ID = 1
@@ -170,5 +169,6 @@ AUTHENTICATION_BACKENDS = (
 # Email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# Debug setting for developing stage
-
+# Star rating settings
+TEMPLATE_CONTEXT_PROCESSORS = 'django.core.context_processors.request'
+STAR_RATINGS_RERATE = True

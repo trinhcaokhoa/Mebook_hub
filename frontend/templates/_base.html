@@ -8,7 +8,8 @@
             {% block title %} MeBook Hub {% endblock title%}
         </title>
 
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">        
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">       
+        <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
             integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -78,6 +79,7 @@
                 </div>
               </form>
             </div>
+            <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8\
                     abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/\
@@ -100,4 +102,5 @@
             
 
     </body>
+    
 </html>
