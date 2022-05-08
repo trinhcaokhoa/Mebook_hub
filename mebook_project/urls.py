@@ -30,6 +30,7 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('library/', include('library.urls')),
     path('', include('homepages.urls')),   
+    path('ratings/', include('star_ratings.urls', namespace='ratings')),
     # User account
     path('accounts/', include('allauth.urls')),
     

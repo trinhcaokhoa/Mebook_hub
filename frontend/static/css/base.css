@@ -35,6 +35,9 @@ h2{
 	font-family: Impact,	Haettenschweiler,	'Arial Narrow Bold',	sans-serif;
 	margin: 50px;
 }
+h4{
+	margin-top: 15px;
+}
 .img {
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -477,8 +480,18 @@ img.img-fluid.img-thumbnail:hover {
 }
 
 .img-responsive{
+	position: relative;
 	width: 350px;
 	height: 500px;
 }
+img.img-responsive{
+	margin: 15px;
+}
+
+img.img-responsive:hover{
+	transform: scale(1.1);
+	transition: 0.3s;
+}
+
 
 
