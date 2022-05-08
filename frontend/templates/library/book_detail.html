@@ -15,13 +15,18 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-6">
                     <h4 class="box-title mt-5">Book description</h4>
+
                     <p>{{ book_detail.description }}</p>
 
+<<<<<<< HEAD
                     <div class="rating">
                         <h4>Rating</h4>
                         {% ratings book_detail %}
                     </div>
 
+=======
+                    
+>>>>>>> 1cdf7d4cd9c8be213a3c7f109ce0967da2b0043b
                     <a href="{% url 'download_file' %}"><button type="button" class="btn-primary">Download PDF</button> </a>
                     <a href="{{ book_detail.file.url }}"><button type="button" class="btn-primary">View PDF</button> </a>
                 </div>
