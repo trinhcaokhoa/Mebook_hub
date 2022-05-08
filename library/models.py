@@ -2,7 +2,7 @@ import os
 from django.db import models
 from django.urls import reverse
 from users.models import CustomUser
-from django.contrib.contenttypes.fields import GenericRelation
+
 
 
 class LibraryBook(models.Model):

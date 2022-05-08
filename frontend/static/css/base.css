@@ -484,9 +484,7 @@ img.img-fluid.img-thumbnail:hover {
 	width: 350px;
 	height: 500px;
 }
-img.img-responsive{
-	margin: 15px;
-}
+
 
 img.img-responsive:hover{
 	transform: scale(1.1);
