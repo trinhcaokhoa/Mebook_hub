@@ -1,4 +1,7 @@
 import os
+from pyexpat import model
+from django.conf import settings
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.db import models
 from django.urls import reverse
 from users.models import CustomUser
