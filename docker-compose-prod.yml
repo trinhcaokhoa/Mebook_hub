@@ -1,0 +1,25 @@
+version: "3.1"
+
+services:
+  web:
+    build: .
+    command: gunicorn mebook_project.wsgi -b 0.0.0.0:8000 
+    environment:
+      - ENVIRONMENT=production
+      - SECRET_KEY=3!90pfr%rr=we&ghgdhc$_c7@bxdqsq5sos7zrvu67et745019
+      - DEBUG=0
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+      restart: always
+      image: postgres:11
+      container_name: db_postgres 
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=mebook_hub
+      ports:
+        - 5432:5432
+      
