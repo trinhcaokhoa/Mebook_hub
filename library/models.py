@@ -6,7 +6,6 @@ from users.models import CustomUser
 
 
 
-
 class LibraryBook(models.Model):
     owner = models.ForeignKey(  # Owner is set as the current user (By defined function in admin.py)
         CustomUser,
