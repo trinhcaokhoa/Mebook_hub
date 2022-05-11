@@ -37,7 +37,7 @@ urlpatterns = [
     path('favicon.ico', RedirectView.as_view(
         url=staticfiles_storage.url('images/favicon.ico')))
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.DEFAULT_FILE_STORAGE, document_root=settings.DEFAULT_FILE_STORAGE)
 
 
 
