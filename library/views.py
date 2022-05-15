@@ -53,18 +53,18 @@ class BookDetailView(DetailView):  # Get the book detail, download, upload revie
         #context['review_form'] = self.get_form()
         return context'''
     
-    def download_file(request):
+    '''def download_file(request):
         filename = BookDetailView.obj.file
         file_path = os.path.join(
-            settings.MEDIA_ROOT, str(filename))
+            settings.MEDIA_URL, str(filename))
         if os.path.exists(file_path):
             with open(file_path, 'rb') as fh:
                 response = HttpResponse(
-                fh.read(), content_type="application/vnd.ms-excel")
+                    fh.read(), content_type="application/vnd.ms-excel")
                 response['Content-Disposition'] = 'inline; filename=' + \
                     os.path.basename(file_path)
             return response
-        raise Http404    
+        raise Http404 '''
     
         
 
@@ -81,20 +81,18 @@ class SearchView(ListView): # Search the book with the q = keyword
             Q(title__icontains=query) | Q(author__icontains=query)
         )
 
-
 @login_required
 def upload_file(request):  # method to upload a book to library
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/library/')      
+        if settings.USE_S3:
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/library/')
 
     else:
         form = BookForm({'owner': request.user})
     return render(request, 'library/upload.html', {'form': form})
-
-
 
 
 

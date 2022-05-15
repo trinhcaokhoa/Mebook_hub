@@ -33,11 +33,8 @@ urlpatterns = [
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
     # User account
     path('accounts/', include('allauth.urls')),
-    
-    path('favicon.ico', RedirectView.as_view(
-        url=staticfiles_storage.url('images/favicon.ico')))
 
-] + static(settings.DEFAULT_FILE_STORAGE, document_root=settings.DEFAULT_FILE_STORAGE)
+]
 
 
 

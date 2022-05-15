@@ -22,8 +22,6 @@
                         <h4>Rating</h4>
                         {% ratings book_detail %}
                     </div>
-
-                    <a href="{% url 'download_file' %}"><button type="button" class="btn-primary">Download PDF</button> </a>
                     <a href="{{ book_detail.file.url }}"><button type="button" class="btn-primary">View PDF</button> </a>
                 </div>
                 

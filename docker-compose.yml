@@ -7,6 +7,10 @@ services:
       environment:
         - ENVIRONMENT=development
         - SECRET_KEY=3!90pfr%rr=we&ghgdhc$_c7@bxdqsq5sos7zrvu67et745019
+        - USE_S3=TRUE
+        - AWS_ACCESS_KEY_ID=AKIAU4GQWWAGXLOWCPWK
+        - AWS_SECRET_ACCESS_KEY=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
+        - AWS_STORAGE_BUCKET_NAME=mebookhub
       volumes:
         - .:/code
       ports:
