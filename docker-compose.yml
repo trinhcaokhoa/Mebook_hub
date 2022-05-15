@@ -10,7 +10,7 @@ services:
         - USE_S3=TRUE
         - AWS_ACCESS_KEY_ID=AKIAU4GQWWAGXLOWCPWK
         - AWS_SECRET_ACCESS_KEY=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
-        - AWS_STORAGE_BUCKET_NAME=mebookhub
+        - AWS_STORAGE_BUCKET_NAME=mebook.hub
       volumes:
         - .:/code
       ports:
