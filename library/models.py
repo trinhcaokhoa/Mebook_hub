@@ -16,7 +16,7 @@ class LibraryBook(models.Model):
 
     title = models.CharField(max_length=200, default='title')
     author = models.CharField(max_length=50, default='author')
-    cover = models.ImageField(upload_to='covers/', null=True)
+    cover = models.FileField(upload_to='covers/', null=True)
     file = models.FileField(upload_to='doc/', null=True)
     description = models.CharField(max_length=1500, default="Not given", null=True)
     def __str__(self):
