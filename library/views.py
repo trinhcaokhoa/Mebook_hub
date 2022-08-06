@@ -53,19 +53,21 @@ class BookDetailView(DetailView):  # Get the book detail, download, upload revie
         #context['review_form'] = self.get_form()
         return context'''
     
-    '''def download_file(request):
+    def download_file(request):
         filename = BookDetailView.obj.file
         file_path = os.path.join(
             settings.MEDIA_URL, str(filename))
         if os.path.exists(file_path):
+            print("has file path")
             with open(file_path, 'rb') as fh:
                 response = HttpResponse(
                     fh.read(), content_type="application/vnd.ms-excel")
                 response['Content-Disposition'] = 'inline; filename=' + \
                     os.path.basename(file_path)
             return response
-        raise Http404 '''
-    
+        else:
+            print(file_path)
+        raise Http404
         
 
 
@@ -94,7 +96,7 @@ def upload_file(request):  # method to upload a book to library
         form = BookForm({'owner': request.user})
     return render(request, 'library/upload.html', {'form': form})
 
-
+565
 
 
 

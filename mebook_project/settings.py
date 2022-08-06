@@ -163,7 +163,7 @@ if USE_S3:
     STATICFILES_STORAGE = 'mebook_project.storage_backends.StaticStorage'
     # s3 public media settings
     PUBLIC_MEDIA_LOCATION = 'media'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+    MEDIA_URL = f'https://mebookhub.s3.amazonaws.com/media/'
     DEFAULT_FILE_STORAGE = 'mebook_project.storage_backends.PublicMediaStorage'
 else:
     STATIC_URL = '/static/'
