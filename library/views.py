@@ -1,8 +1,7 @@
 
 import os
-from pyexpat import model
 from django.conf import settings
-from django.http import HttpResponseForbidden, HttpResponseRedirect, HttpResponse, Http404
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 from django.db.models import Q
 from django.urls import reverse 
@@ -11,7 +10,8 @@ from .models import LibraryBook
 from .forms import BookForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.core.validators import URLValidator
+import urllib.request
 
 
 
@@ -32,7 +32,7 @@ class BookListView(LoginRequiredMixin,ListView):  # View the book of the current
     def get_queryset(self):
         # original qs
         qs = super().get_queryset()
-        # filter by a variable captured from url, for example
+        # filter by curent user 
         return qs.filter(owner=self.request.user)
 
 
@@ -57,17 +57,17 @@ class BookDetailView(DetailView):  # Get the book detail, download, upload revie
         filename = BookDetailView.obj.file
         file_path = os.path.join(
             settings.MEDIA_URL, str(filename))
-        if os.path.exists(file_path):
-            print("has file path")
-            with open(file_path, 'rb') as fh:
+        print(file_path)
+        if URLValidator(file_path):
+            with urllib.request.urlopen(file_path) as fh:
                 response = HttpResponse(
                     fh.read(), content_type="application/vnd.ms-excel")
                 response['Content-Disposition'] = 'inline; filename=' + \
                     os.path.basename(file_path)
             return response
         else:
-            print(file_path)
-        raise Http404
+            print(os.path.exists(file_path))
+            raise Http404
         
 
 
