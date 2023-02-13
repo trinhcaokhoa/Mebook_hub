@@ -8,6 +8,7 @@ urlpatterns = [
     path('mybooks/', BookListView.as_view(), name='mybooks'),
     path('<int:pk>', BookDetailView.as_view(), name='book_detail'),
     path('search/',SearchView.as_view(),name='search_results'),
-    path('upload/', upload_file, name='upload_file'),
+    path('upload/', upload_file, name='upload_file'),    
+    
     path('download/', BookDetailView.download_file, name='download_file'),
 ]

@@ -1,18 +1,44 @@
 {% extends '_base.html' %}
+{% load static %}
 {% block title %}Books{% endblock title %}
 {% block content %}
 <h2>Great to see you again, {{ user.username }}</h2>
-<div class="container">
-    <div class="row text-center text-lg-start">
-        {% for book in mybooks %}
-        <div class="col-lg-3 col-md-4 col-6">
-            <a href="{{book.file.url}}" class="d-block mb-4 h-100">
-                <img width="200px" height="200px" class="img-fluid img-thumbnail" src="{{book.cover.url}}" alt="">
-
-            </a>
-
+<div id="accordianId" role="tablist" aria-multiselectable="true">
+    <div class="card-header" role="tab" id="section2HeaderId">
+        <h5 class="mb-0">
+            <a data-toggle="collapse" data-parent="#accordianId" href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+      YOUR MEBOOK CONTRIBUTIONS 
+    </a>
+        </h5>
+    </div>
+    <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+        <div class="chart" style="display: flex; justify-content: center;flex: 1 1 auto; padding: 1.25rem; ;">
+            {% if chart %}
+            {{ chart|safe }}
+            {% else %}
+            <p>No graph was provided.</p>
+            {% endif %}
+            
         </div>
-        {% endfor %}
     </div>
 </div>
+<div class="card">
+    
+    <div class="container">       
+    
+        <div class="row text-center text-lg-start">
+            {% for book in mybooks %}
+            <div class="col-lg-3 col-md-4 col-6">
+                <a href="{{book.file.url}}" class="d-block mb-4 h-100">
+                    <img width="200px" height="300px" class="img-fluid img-thumbnail" src="{{book.cover.url}}" alt="">
+    
+                </a>
+    
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
 {% endblock content %}

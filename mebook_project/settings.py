@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'storages',
@@ -56,6 +55,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',  
     'star_ratings',
+    'plotly',
+    'matplotlib',
+    'kaleido'
 
 ]
 SITE_ID = 1
@@ -216,3 +218,5 @@ if ENVIRONMENT == 'production':
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+

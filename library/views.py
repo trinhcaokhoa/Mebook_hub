@@ -12,6 +12,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.validators import URLValidator
 import urllib.request
+import matplotlib.dates
+import plotly.graph_objs as go
+
 
 
 
@@ -29,11 +32,48 @@ class BookListView(LoginRequiredMixin,ListView):  # View the book of the current
     context_object_name = 'mybooks'
     template_name = 'library/mybooks.html'
 
-    def get_queryset(self):
+    '''def get_queryset(self):
         # original qs
-        qs = super().get_queryset()
+        qs = super().get_queryset()        
         # filter by curent user 
-        return qs.filter(owner=self.request.user)
+        return qs.filter(owner=self.request.user)'''
+
+    def get_context_data(self):
+        context = {}
+        # get query
+        my_books = super().get_queryset().filter(owner=self.request.user).order_by('date')
+        dateslist = list(my_books.values('date'))
+        context['mybooks'] = my_books
+        # handle data from datetime to number
+        x_values = []
+        for i in dateslist:
+            date = i.get('date')
+            x_values.append(date)
+        dates = matplotlib.dates.date2num(x_values)
+        
+        counts = list(range(1,len(dates)+1))
+        
+        # draw the grap
+        post_line = go.Scatter(
+                    x=x_values, 
+                    y=counts,
+                    mode='lines+markers',
+                    name="Books Uploaded",    
+                              
+                    )
+
+        data = [ post_line, ]  
+
+        layout = go.Layout( showlegend=True, 
+                            paper_bgcolor='rgb(233,233,233)',
+                            plot_bgcolor='rgba(0,0,0,0)',
+        )
+
+        fig = go.Figure(data=data, layout=layout)
+        chart  = fig.to_html(full_html=False, default_height=500, default_width=700)
+        
+        context['chart'] = chart
+        return context
 
 
 class BookDetailView(DetailView):  # Get the book detail, download, upload review
@@ -96,7 +136,8 @@ def upload_file(request):  # method to upload a book to library
         form = BookForm({'owner': request.user})
     return render(request, 'library/upload.html', {'form': form})
 
-565
 
 
+    
+    
 
