@@ -216,7 +216,11 @@ if ENVIRONMENT == 'production':
 
 # Heroku
 import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+DATABASES = {}
+# This next line shows that you you are getting 
+# the DATABASE_URL from your .env file, but this is
+# what has changed, and is no longer valid.
+DATABASES['default'] = dj_database_url.parse(
+    os.environ.get('DATABASE_URL'), conn_max_age=600)
 
 
